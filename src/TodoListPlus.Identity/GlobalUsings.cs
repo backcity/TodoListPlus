@@ -1,0 +1,10 @@
+﻿global using TodoListPlus.Application.Models.Authentication;
+global using Microsoft.Extensions.Configuration;
+global using Microsoft.Extensions.DependencyInjection;
+global using Microsoft.AspNetCore.Authentication.JwtBearer;
+global using Microsoft.AspNetCore.Http;
+global using Microsoft.AspNetCore.Identity;
+global using Microsoft.IdentityModel.Tokens;
+global using System.Text;
+global using System.Text.Json;
+global using TodoListPlus.Identity.Models;
