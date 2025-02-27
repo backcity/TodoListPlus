@@ -1,4 +1,5 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using TodoListPlus.Domain.AggregatesModel.TaskTagAggregate;
 
 namespace TodoListPlus.Domain.AggregatesModel.TodoTaskAggregate;
 
@@ -10,7 +11,7 @@ public class TodoTask
 {
     public TodoTask()
     {
-        TaskTags = new List<int>();
+        TaskTags = new List<TaskTag>();
     }
 
     /// <summary>
@@ -36,7 +37,7 @@ public class TodoTask
     [Required]
     public string IdentityId { get; private set; }
 
-    public List<int> TaskTags { get; private set; }
+    public List<TaskTag> TaskTags { get; private set; }
 
     public TodoTaskStatus TodoTaskStatus { get; private set; }
 
@@ -56,6 +57,18 @@ public class TodoTask
         Priority = priority;
     }
 
+    public void RemoveTag(int tagId)
+    {
+        var taskTag = TaskTags
+            .Where(p => p.TagId == tagId)
+            .SingleOrDefault();
+
+        if (taskTag != null)
+        {
+            TaskTags.Remove(taskTag);
+        }
+    }
+
     public void TaskOverDown()
     {
         if (TodoTaskStatus != TodoTaskStatus.未完成)
@@ -66,8 +79,8 @@ public class TodoTask
         TodoTaskStatus = TodoTaskStatus.已完成;
     }
 
-    public void AddTag(int TagId)
+    public void AddTag(TaskTag taskTag)
     {
-        TaskTags.Add(TagId);
+        TaskTags.Add(taskTag);
     }
 }

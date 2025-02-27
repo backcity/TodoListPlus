@@ -1,9 +1,9 @@
 ﻿namespace TodoListPlus.Domain.AggregatesModel.TaskTagAggregate;
 
-public interface ITaskTagRepository : IRepository<TaskTag>
+public interface ITaskTagRepository : IRepository<Tag>
 {
-    Task<TaskTag> AddAsync(TaskTag taskTag);
-    void Update(TaskTag taskTag);
-    void Delete(TaskTag taskTag);
-    Task<TaskTag> GetAsync(int taskTagId);
+    Task<Tag> AddAsync(Tag taskTag);
+    void Update(Tag taskTag);
+    void Delete(Tag taskTag);
+    Task<Tag> GetAsync(int taskTagId);
 }

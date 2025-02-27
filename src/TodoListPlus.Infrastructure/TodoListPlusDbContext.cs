@@ -3,6 +3,8 @@
 public class TodoListPlusDbContext : DbContext, IUnitOfWork
 {
     public DbSet<TodoTask> TodoTasks { get; set; }
+    public DbSet<Tag> Tags { get; set; }
+
     public DbSet<TaskTag> TaskTags { get; set; }
 
     private readonly IMediator _mediator;
@@ -27,6 +29,9 @@ public class TodoListPlusDbContext : DbContext, IUnitOfWork
     {
         modelBuilder.HasDefaultSchema("todolisttask");
         modelBuilder.ApplyConfiguration(new TodoTaskEntityTypeConfiguration());
+        modelBuilder.ApplyConfiguration(new TaskTagEntityTypeConfiguration());
+        modelBuilder.ApplyConfiguration(new TagEntityTypeConfiguration());
+
     }
 
     public async Task<bool> SaveEntitiesAsync(CancellationToken cancellationToken = default)

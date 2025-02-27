@@ -1,4 +1,6 @@
-﻿namespace TodoListPlus.Domain.AggregatesModel.TaskTagAggregate;
+﻿using System.Text.RegularExpressions;
+
+namespace TodoListPlus.Domain.AggregatesModel.TaskTagAggregate;
 
 public class TagColor : ValueObject
 {
@@ -7,10 +9,12 @@ public class TagColor : ValueObject
     public TagColor(string value)
     {
         //todo 判断颜色字符串是否符合规则
-       /* if ()
+        var flexibleRegex = new Regex(@"^#(?:[A-Fa-f0-9]{3}){1,2}$|^#(?:[A-Fa-f0-9]{4}){2}$");
+
+        if (!flexibleRegex.IsMatch(value))
         {
             throw new TodoListPlusException("不支持的颜色规则");
-        }*/
+        }
         Value = value;
     }
 

@@ -1,19 +1,23 @@
-﻿
-
-namespace TodoListPlus.Infrastructure.EntityConfigurations;
-
-class TaskTagEntityTypeConfiguration : IEntityTypeConfiguration<TaskTag>
+﻿namespace TodoListPlus.Infrastructure.EntityConfigurations
 {
-    public void Configure(EntityTypeBuilder<TaskTag> taskTagConfiguration)
+    class TaskTagEntityTypeConfiguration : IEntityTypeConfiguration<TaskTag>
     {
-        taskTagConfiguration.ToTable("tasktags");
+        public void Configure(EntityTypeBuilder<TaskTag> taskTagConfiguration)
+        {
+            taskTagConfiguration.ToTable("tasktags");
 
-        taskTagConfiguration.Ignore(t => t.DomainEvents);
+            taskTagConfiguration.HasKey(p => new { p.TodoTaskId, p.TagId });
 
-        taskTagConfiguration.Property(t => t.Id)
-            .UseHiLo("tasktagseq");
+            taskTagConfiguration
+                .HasOne(t => t.Tag)
+                .WithMany()
+                .HasForeignKey(t => t.TagId)
+                .OnDelete(DeleteBehavior.Restrict);
 
-        taskTagConfiguration
-            .OwnsOne(t => t.TagColor);
+            taskTagConfiguration
+                .Property(t => t.CreatedAt)
+                .HasColumnType("timestamp with time zone")
+                .HasDefaultValueSql("now()");
+        }
     }
 }

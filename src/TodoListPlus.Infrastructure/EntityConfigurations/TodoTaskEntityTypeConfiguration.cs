@@ -22,6 +22,11 @@ class TodoTaskEntityTypeConfiguration : IEntityTypeConfiguration<TodoTask>
             .HasConversion<string>()
             .HasMaxLength(30);
 
+        taskConfiguration
+            .HasMany(p => p.TaskTags)
+            .WithOne()
+            .HasForeignKey(t => t.TodoTaskId)
+            .OnDelete(DeleteBehavior.Cascade);
 
     }
 }

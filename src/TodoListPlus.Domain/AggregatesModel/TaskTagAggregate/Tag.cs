@@ -3,14 +3,14 @@
 /// <summary>
 /// 领域任务标签
 /// </summary>
-public class TaskTag
+public class Tag
     : Entity, IAggregateRoot
 {
     public string Name { get; private set; }
 
     public TagColor TagColor { get; private set; }
 
-    public TaskTag(string name, string tagColor)
+    public Tag(string name, string tagColor)
     {
         Name = !string.IsNullOrWhiteSpace(name) ? name : throw new TodoListPlusException($"{nameof(name)}");
         TagColor = new TagColor(tagColor);
@@ -18,6 +18,6 @@ public class TaskTag
 
     public void Delete()
     {
-        AddDomainEvent(new TagDeleteEvent(Id));
+        AddDomainEvent(new TagDeleteDomainEvent(Id));
     }
 }

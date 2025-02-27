@@ -11,23 +11,23 @@ public class TaskTagRepository : ITaskTagRepository
         _context = context ?? throw new ArgumentNullException(nameof(context));
     }
 
-    public async Task<TaskTag> AddAsync(TaskTag taskTag)
+    public async Task<Tag> AddAsync(Tag taskTag)
     {
-        return (await _context.TaskTags.AddAsync(taskTag)).Entity;
+        return (await _context.Tags.AddAsync(taskTag)).Entity;
     }
 
-    public void Delete(TaskTag taskTag)
+    public void Delete(Tag taskTag)
     {
         _context.Entry(taskTag).State = EntityState.Deleted;
     }
 
-    public async Task<TaskTag> GetAsync(int taskTagId)
+    public async Task<Tag> GetAsync(int taskTagId)
     {
-        var taskTag = await _context.TaskTags.FindAsync(taskTagId);
+        var taskTag = await _context.Tags.FindAsync(taskTagId);
         return taskTag;
     }
 
-    public void Update(TaskTag taskTag)
+    public void Update(Tag taskTag)
     {
         _context.Entry(taskTag).State = EntityState.Modified;
     }
