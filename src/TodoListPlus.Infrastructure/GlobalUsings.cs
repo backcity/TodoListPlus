@@ -1,1 +1,9 @@
-﻿
+﻿global using Fx.SeedWork.Domain;
+global using MediatR;
+global using TodoListPlus.Domain.AggregatesModel.TodoTaskAggregate;
+global using Microsoft.EntityFrameworkCore;
+global using Microsoft.EntityFrameworkCore.Metadata.Builders;
+global using TodoListPlus.Domain.AggregatesModel.TaskTagAggregate;
+global using Microsoft.EntityFrameworkCore.Storage;
+global using System.Data;
+global using TodoListPlus.Infrastructure.EntityConfigurations;
