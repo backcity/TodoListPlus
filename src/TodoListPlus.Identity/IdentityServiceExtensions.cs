@@ -1,4 +1,5 @@
-﻿
+﻿using TodoListPlus.Application.Contracts.Identity;
+using TodoListPlus.Identity.Services;
 
 namespace TodoListPlus.Identity
 {
@@ -15,7 +16,7 @@ namespace TodoListPlus.Identity
                 .AddEntityFrameworkStores<TodoListPlusIdentityDbContext>()
                 .AddDefaultTokenProviders();
 
-            //todo AddTansient
+            services.AddTransient<IAuthenticationService, AuthenticationService>();
 
             services.AddAuthentication(options =>
             {
