@@ -15,8 +15,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Queries\" />
-    <Folder Include="Command\" />
+    <Folder Include="Behaviors\" />
+    <Folder Include="Validations\" />
   </ItemGroup>
 
 </Project>

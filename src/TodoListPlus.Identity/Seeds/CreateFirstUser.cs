@@ -11,7 +11,7 @@
             {
                 Email = "heichengzi2024@outlook.com",
                 FirstName = "hei",
-                SecondName = "chengzi",
+                LastName = "chengzi",
                 UserName = "heichengzi",
                 EmailConfirmed = true
             };

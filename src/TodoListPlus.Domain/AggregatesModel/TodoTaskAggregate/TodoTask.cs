@@ -44,13 +44,13 @@ public class TodoTask
     public TodoTask(string identityId, string title, string taskContent, DateTime subTime, Priority priority)
         : this()
     {
-        IdentityId = !string.IsNullOrWhiteSpace(identityId) ? identityId : throw new TodoListPlusException(nameof(identityId));
-        Title = !string.IsNullOrWhiteSpace(title) ? title : throw new TodoListPlusException(nameof(title));
-        TaskContent = !string.IsNullOrWhiteSpace(taskContent) ? taskContent : throw new TodoListPlusException(nameof(taskContent));
+        IdentityId = !string.IsNullOrWhiteSpace(identityId) ? identityId : throw new TodoListPlusDomainException(nameof(identityId));
+        Title = !string.IsNullOrWhiteSpace(title) ? title : throw new TodoListPlusDomainException(nameof(title));
+        TaskContent = !string.IsNullOrWhiteSpace(taskContent) ? taskContent : throw new TodoListPlusDomainException(nameof(taskContent));
 
         if (subTime < DateTime.Now)
         {
-            throw new TodoListPlusException(nameof(subTime));
+            throw new TodoListPlusDomainException(nameof(subTime));
         }
         SubTime = subTime;
 
@@ -73,7 +73,7 @@ public class TodoTask
     {
         if (TodoTaskStatus != TodoTaskStatus.未完成)
         {
-            throw new TodoListPlusException($"任务的状态不能从{TodoTaskStatus}转变为{TodoTaskStatus.已完成}");
+            throw new TodoListPlusDomainException($"任务的状态不能从{TodoTaskStatus}转变为{TodoTaskStatus.已完成}");
         }
 
         TodoTaskStatus = TodoTaskStatus.已完成;
@@ -81,6 +81,11 @@ public class TodoTask
 
     public void AddTag(TaskTag taskTag)
     {
+        var existTag = TaskTags.SingleOrDefault(t => t.TagId == taskTag.TagId);
+        if (existTag != null)
+        {
+            return;
+        }
         TaskTags.Add(taskTag);
     }
 }

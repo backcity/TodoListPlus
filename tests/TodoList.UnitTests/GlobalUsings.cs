@@ -3,3 +3,4 @@ global using TodoListPlus.Domain.Events;
 global using MediatR;
 global using TodoListPlus.Domain.AggregatesModel.TaskTagAggregate;
 global using TodoListPlus.Domain.Exceptions;
+global using TodoListPlus.Domain.AggregatesModel.TodoTaskAggregate;

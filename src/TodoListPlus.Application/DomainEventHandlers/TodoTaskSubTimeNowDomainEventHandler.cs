@@ -1,14 +1,13 @@
 ﻿
-namespace TodoListPlus.Application.DomainEventHandlers
+namespace TodoListPlus.Application.DomainEventHandlers;
+
+public class TodoTaskSubTimeNowDomainEventHandler
+    : INotificationHandler<TodoTaskSubTimeNowDomainEvent>
 {
-    public class TodoTaskSubTimeNowDomainEventHandler
-        : INotificationHandler<TodoTaskSubTimeNowDomainEvent>
+
+
+    public Task Handle(TodoTaskSubTimeNowDomainEvent notification, CancellationToken cancellationToken)
     {
-
-
-        public Task Handle(TodoTaskSubTimeNowDomainEvent notification, CancellationToken cancellationToken)
-        {
-            throw new NotImplementedException();
-        }
+        throw new NotImplementedException();
     }
 }

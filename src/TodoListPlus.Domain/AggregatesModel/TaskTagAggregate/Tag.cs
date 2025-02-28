@@ -12,7 +12,7 @@ public class Tag
 
     public Tag(string name, string tagColor)
     {
-        Name = !string.IsNullOrWhiteSpace(name) ? name : throw new TodoListPlusException($"{nameof(name)}");
+        Name = !string.IsNullOrWhiteSpace(name) ? name : throw new TodoListPlusDomainException($"{nameof(name)}");
         TagColor = new TagColor(tagColor);
     }
 

@@ -13,7 +13,7 @@ public class TagColor : ValueObject
 
         if (!flexibleRegex.IsMatch(value))
         {
-            throw new TodoListPlusException("不支持的颜色规则");
+            throw new TodoListPlusDomainException("不支持的颜色规则");
         }
         Value = value;
     }
