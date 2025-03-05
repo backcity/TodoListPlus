@@ -10,6 +10,9 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Core", "Core", "{0EBD6965-5EB4-4020-9612-56E9B81D36D3}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Infrastructure", "Infrastructure", "{ED177675-6520-4A13-92B0-36724CEA26C7}"
+	ProjectSection(SolutionItems) = preProject
+		src\TodoListPlus.Domain\GlobalUsings.cs = src\TodoListPlus.Domain\GlobalUsings.cs
+	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "UI", "UI", "{C1EEA5A0-3A84-49F6-AA6A-4D7E5B15025A}"
 EndProject
