@@ -10,10 +10,16 @@ public class Tag
 
     public TagColor TagColor { get; private set; }
 
+
+
     public Tag(string name, string tagColor)
     {
         Name = !string.IsNullOrWhiteSpace(name) ? name : throw new TodoListPlusDomainException($"{nameof(name)}");
         TagColor = new TagColor(tagColor);
+    }
+
+    public Tag()
+    {
     }
 
     public void Delete()

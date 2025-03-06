@@ -22,9 +22,6 @@ public class CreateTodoTaskCommand
     public Priority Priority { get; private set; }
     [DataMember]
     public IEnumerable<TaskTagDto> TaskTagItems => _taskTagItems;
-
-
-
 }
 
 public record TaskTagDto

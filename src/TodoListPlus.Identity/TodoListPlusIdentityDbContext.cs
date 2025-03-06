@@ -6,7 +6,8 @@ namespace TodoListPlus.Identity
 {
     public class TodoListPlusIdentityDbContext : IdentityDbContext<ApplicationUser>
     {
-        public TodoListPlusIdentityDbContext(DbContextOptions options) : base(options)
+        public DbSet<ApplicationUser> ApplicationUsers { get; set; }
+        public TodoListPlusIdentityDbContext(DbContextOptions<TodoListPlusIdentityDbContext> options) : base(options)
         {
         }
 

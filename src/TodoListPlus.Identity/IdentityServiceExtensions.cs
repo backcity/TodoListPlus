@@ -7,12 +7,12 @@ namespace TodoListPlus.Identity
     {
         public static void AddIdentityServices(this IServiceCollection services, IConfiguration configuration)
         {
-            services.Configure<JwtSettings>(configuration.GetSection(nameof(JwtSettings)));
+            services.Configure<JwtSettings>(configuration.GetSection("JwtSettings"));
 
             services.AddNpgsql<TodoListPlusIdentityDbContext>(configuration.GetConnectionString("TodoListPlusIdentityConnectionString"),
                 b => b.MigrationsAssembly(typeof(TodoListPlusIdentityDbContext).Assembly.FullName));
 
-            services.AddIdentity<ApplicationUser, IdentityUser>()
+            services.AddIdentity<ApplicationUser, IdentityRole>()
                 .AddEntityFrameworkStores<TodoListPlusIdentityDbContext>()
                 .AddDefaultTokenProviders();
 
