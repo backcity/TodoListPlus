@@ -1,6 +1,5 @@
 ﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
-using TodoListPlus.Identity.Models;
 
 namespace TodoListPlus.Identity
 {
